@@ -20,7 +20,7 @@ module.exports = {
                 use: ['babel-loader']
             }, {
                 test: /\.(css|scss|less)$/,
-                use: ['css-loader', 'style-loader', 'sass-loader']
+                use: ['css-loader', 'style-loader', 'sass-loader', 'postcss-loader']
             }, {
                 test: /\.(png|jpg|gif|woff|woff2)$/,
                 use: ['url-loader']
@@ -31,9 +31,15 @@ module.exports = {
         new HtmlWwbpackPlugin({
             title: 'echarts-demo',
             inject: true,
-            teplate: 'index.html'
+            template: './index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default']
+        })
     ],
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
@@ -47,6 +53,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'build'),
         compress: true,
         port: 8060,
-        hot: true
+        hot: true,
+        inline: true
     }
 }
