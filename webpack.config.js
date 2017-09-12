@@ -20,7 +20,7 @@ module.exports = {
                 use: ['babel-loader']
             }, {
                 test: /\.(css|scss|less)$/,
-                use: ['css-loader', 'style-loader', 'sass-loader', 'postcss-loader']
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }, {
                 test: /\.(png|jpg|gif|woff|woff2)$/,
                 use: ['url-loader']
@@ -33,13 +33,7 @@ module.exports = {
             inject: true,
             template: './index.html'
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            Popper: ['popper.js', 'default']
-        })
+        new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
@@ -54,6 +48,6 @@ module.exports = {
         compress: true,
         port: 8060,
         hot: true,
-        inline: true
+        inline: true //re
     }
 }

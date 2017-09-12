@@ -1,0 +1,51 @@
+//common css
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+//common css end
+
+//variable
+$headHeight: 60px;
+$headColor: #000;
+
+.cc_HomePage {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    &_Head {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        padding: 0 20px;
+        width: 100%;
+        height: $headHeight;
+        background-color: $headColor;
+        color: #fff;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .Head_child {
+            flex: 0 1 60px;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+        
+    }
+
+    //body
+    &_Body {
+        width: 100%;
+        position: absolute;
+        top: $headHeight;
+        left: 0;
+        background-color: #FAF2F2;
+        
+    }
+}
+
+
