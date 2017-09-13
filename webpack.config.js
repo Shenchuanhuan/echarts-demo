@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWwbpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BASE_PATH = path.join(__dirname, 'src');
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWwbpackPlugin({
+        new HtmlWebpackPlugin({
             title: 'echarts-demo',
             inject: true,
             template: './index.html'

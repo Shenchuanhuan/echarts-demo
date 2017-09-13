@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import { Tooltip } from 'antd';
+import DragBox from 'Component/dragBox';
+import Menu from 'Component/menu';
 
+import './index.scss';
 
-const text = 'the tooltip message'
+import BasicBar from 'Component/bar';
+import BasicLine from 'Component/line';
+import BasicPie from 'Component/pie';
+
 export default class Charts extends Component {
     render() {
         return (
-            <div>
-                <h2>first page</h2>
-                <Tooltip title={text}>
-                  <span style={{display: 'inline-block', border: '1px solid #000'}}>hover me and I will show you some message!</span>
-                </Tooltip>
+            <div className='charts-container'>
+                <div className='charts-demo'>
+                    <DragBox>
+                        <BasicBar />
+                    </DragBox>
+                    <DragBox>
+                        <BasicLine />
+                    </DragBox>
+                    <DragBox>
+                        <BasicPie />
+                    </DragBox>
+                </div>
             </div>
         )
     }
